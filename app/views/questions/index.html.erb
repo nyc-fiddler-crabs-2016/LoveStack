@@ -1,0 +1,27 @@
+<h1> Questions </h1>
+
+<%= link_to "Submit a Question", new_question_path %>
+
+<% @questions.each do |question| %>
+<section>
+  <h4><%=link_to question.title, question_path(question.id) %></h4>
+  <p class = "light small"><%=question.user.email%>, Vote Count:<%=question.vote_count%></p>
+  <div class = "vote-up"><%= form_for @vote, url: {action:"create", controller: "votes"} do |f| %>
+    <%= hidden_field_tag :voteable_type, "Question" %>
+    <%= hidden_field_tag :voteable_id, question.id %>
+    <%= hidden_field_tag :vote_status, true %>
+
+    <%= f.submit "UpVote"%>
+  <%end%>
+</div>
+
+<div class = "vote-down"><%= form_for @vote, url: {action:"create", controller: "votes"} do |f| %>
+    <%= hidden_field_tag :voteable_type, "Question" %>
+    <%= hidden_field_tag :voteable_id, question.id %>
+    <%= hidden_field_tag :vote_status, false %>
+
+    <%= f.submit "DownVote"%>
+  <%end%>
+</div>
+</section>
+<% end %>

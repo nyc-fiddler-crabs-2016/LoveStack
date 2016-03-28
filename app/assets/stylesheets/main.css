@@ -1,0 +1,283 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100);
+
+/* RESETS */
+
+html { box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+
+/* DESIGN STYLES  */
+
+/* Fonts */
+
+html { font-family: 'Open Sans', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+/* Colors */
+
+html,
+body {
+  background-color: #EEEEEE;   /* medium gray */
+  color: #212121;              /* dark gray */
+}
+
+header,
+header nav input[type="submit"] {
+  background-color: #00897B;
+}
+
+main {
+  color: #212121;              /* dark gray */
+}
+
+a:link,
+a:visited,
+header nav input[type="submit"] {
+  color: #303030;           /* darker contrasting color; inactive links */
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+header nav input[type="submit"]:hover,
+header nav input[type="submit"]:active {
+  color: #009688;          /* brighter contrasting color; active links */
+}
+
+
+
+main table,
+main th,
+main td {
+  border: 1px solid #222;         /* match body background-color */
+  background-color: #eee;         /* lighter than main background-color */
+}
+
+
+/* HEADER STYLES */
+
+
+header h1 {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+  float: left;
+}
+
+/*NAV*/
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: right;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover:not(.active) {
+    background-color: #111;
+}
+
+nav a:active {
+background-color:#4CAF50;
+}
+/*End NAV*/
+
+
+/* MAIN STYLES - Yield Block */
+
+main {
+  clear: both;
+  width: 900px;
+  margin: 50px auto;
+}
+
+section {
+  margin: 25px auto;
+  background-color: #FFF;
+  padding: 20px;
+}
+
+/* Lists */
+
+main ul { margin: 0 auto 1.5rem; }
+
+main ul li {
+  list-style: none;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.25rem;
+}
+
+/* Forms */
+
+
+main input[type="submit"] { width: 12rem; padding: .5rem; }
+
+/* Tables */
+
+main table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+main th,
+main td {
+  padding: 0.25rem 0;
+  width: 25%;
+  text-align: center;
+}
+
+
+/* FOOTER STYLES */
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 1rem;
+}
+
+/*Forms Better*/
+
+form {
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 500px;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    font: 12px;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+}
+
+.vote-up {
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    font: 12px;
+    color: #888;
+}
+
+.vote-down {
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    font: 12px;
+    color: #888;
+}
+
+form h1 {
+    font-size: 25px;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    margin: -10px -15px 30px -10px;;
+    color: #888;
+}
+form h1>span {
+    display: block;
+    font-size: 11px;
+}
+form label {
+    display: block;
+    margin: 0px;
+}
+form label>span {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+}
+form input[type="text"], form input[type="email"], form input[type="password"], form textarea, form select {
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 70%;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+form textarea{
+    padding: 5px 3px 3px 5px;
+}
+form select {
+    background: #FFF url('down-arrow.png') no-repeat right;
+    background: #FFF url('down-arrow.png') no-repeat right);
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 70%;
+    height: 35px;
+    line-height: 25px;
+}
+form textarea{
+    height:100px;
+}
+form .button, form input[type="submit"], .button {
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+form .button:hover, form input[type="submit"]:hover, .button:hover {
+    background: #CF7A7A
+}
+
+/*Helper classes*/
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.small {
+  font-size: .7rem;
+}
+
+.light {
+  opacity: 0.6;
+}

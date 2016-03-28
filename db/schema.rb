@@ -1,174 +1,90 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
-<sql>
-<datatypes db="mysql">
-  <group label="Numeric" color="rgb(238,238,170)">
-    <type label="Integer" length="0" sql="INTEGER" quote=""/>
-    <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
-    <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
-    <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
-    <type label="INT" length="0" sql="INT" quote=""/>
-    <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
-    <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
-    <type label="Single precision" length="0" sql="FLOAT" quote=""/>
-    <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-  </group>
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
 
-  <group label="Character" color="rgb(255,200,200)">
-    <type label="Char" length="1" sql="CHAR" quote="'"/>
-    <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
-    <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
-    <type label="Binary" length="1" sql="BINARY" quote="'"/>
-    <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
-    <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
-  </group>
+ActiveRecord::Schema.define(version: 20160325160736) do
 
-  <group label="Date &amp; Time" color="rgb(200,255,200)">
-    <type label="Date" length="0" sql="DATE" quote="'"/>
-    <type label="Time" length="0" sql="TIME" quote="'"/>
-    <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
-    <type label="Year" length="0" sql="YEAR" quote=""/>
-    <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
-  </group>
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-  <group label="Miscellaneous" color="rgb(200,200,255)">
-    <type label="ENUM" length="1" sql="ENUM" quote=""/>
-    <type label="SET" length="1" sql="SET" quote=""/>
-    <type label="Bit" length="0" sql="bit" quote=""/>
-  </group>
-</datatypes><table x="99" y="189" name="users">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="email" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="password_digest" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<row name="updated_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="590" y="0" name="questions">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="title" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="content" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<row name="updated_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="904" y="582" name="answers">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="content" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="question_id" null="1" autoincrement="0">
-<datatype>INTEGER(question_id)</datatype>
-<default>NULL</default><relation table="questions" row="id" />
-</row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<row name="updated_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<row name="best" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>'false'</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1065" y="157" name="responses">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="content" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="responsible_type" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default><relation table="answers" row="id" />
-</row>
-<row name="responsible_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="questions" row="id" />
-</row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<row name="updated_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="298" y="580" name="votes">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="upvote" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="downvote" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="voteable_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="questions" row="id" />
-<relation table="responses" row="id" />
-<relation table="answers" row="id" />
-</row>
-<row name="voteable_type" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<row name="updated_at" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-</sql>
+  create_table "answers", force: :cascade do |t|
+    t.text     "content",                     null: false
+    t.integer  "question_id",                 null: false
+    t.integer  "user_id",                     null: false
+    t.boolean  "best",        default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.integer  "tag_id",     null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "questions", ["tag_id"], name: "index_questions_on_tag_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+
+  create_table "responses", force: :cascade do |t|
+    t.text     "content",          null: false
+    t.integer  "responsible_id",   null: false
+    t.string   "responsible_type", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "responses", ["responsible_type", "responsible_id"], name: "index_responses_on_responsible_type_and_responsible_id", using: :btree
+  add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
+
+  create_table "tag_questions", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tag_questions", ["question_id"], name: "index_tag_questions_on_question_id", using: :btree
+  add_index "tag_questions", ["tag_id"], name: "index_tag_questions_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.boolean  "vote_status"
+    t.integer  "user_id",       null: false
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id", using: :btree
+
+end

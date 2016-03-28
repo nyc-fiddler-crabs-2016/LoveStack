@@ -1,0 +1,8 @@
+<h1><%= @user.email%>'s Profile Page</h1><br>
+<h2><%= @user.email%>'s Questions</h2><br>
+
+<%@questions.each do |question| %>
+  <p>
+    <%=link_to question.title, question%>
+  </p>
+<%end%>

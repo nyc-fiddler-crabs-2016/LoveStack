@@ -1,0 +1,11 @@
+"Make a quick response"
+
+
+<div class = question-form><%=form_for @path do |f| %>
+  <%= f.label :content %>
+  <%=f.text_area :content, size: "30" %>
+   <%= hidden_field_tag :responsible_type, @responsible %>
+   <%= hidden_field_tag :responsible_id, @responded_id %>
+  <%=f.submit%>
+<% end %>
+</div>

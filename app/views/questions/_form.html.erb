@@ -1,0 +1,13 @@
+<div class = question-form><%=form_for(@question) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title%>
+
+  <p><%=f.label :tags %><br>
+  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %><br></p>
+
+
+  <%= f.label :content %>
+  <%=f.text_area :content, size: "30" %>
+  <%=f.submit%>
+<% end %>
+</div>
